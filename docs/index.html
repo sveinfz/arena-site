@@ -7,15 +7,84 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <!-- Theme: Simple -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"> -->
+  <!-- Adding some new stuff -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+  <style>
+    :root {
+      --docsifytabs-border-color: #ededed;
+      --docsifytabs-tab-highlight-color: #F77F00;
+    }
+  </style>
 </head>
 <body>
+  <nav>
+    <a href="#/">Arena</a>
+    <a href="blog.sveinfz.me" target="_blank">青鸾峰下</a>
+  </nav>
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: '',
-      repo: ''
+      name: 'Arena',
+      // logo: '_img/icon.png',
+      // repo: 'https://github.com/sveinfz/arena-site',
+      loadSidebar: true, // 侧边栏配置
+      subMaxLevel: 2, // 侧边栏显示层级
+      coverpage: true, // 是否配置封面
+      auto2top: true, // 切换页面后是否自动跳转到页面顶部
+      markdown: {
+        highlight: 'pygmentize.js',
+      },
+      themeColor: '#D0104C',
+      ga: '',
+      tabs: {
+        persist: true,
+        sync: true,
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true,
+      },
+      // 更新日期
+      formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}',
+      // 插件
+      plugins: [
+        function(hook, vm) {
+          // 底部
+          hook.beforeEach(function(content) {
+            var curYear = (new Date()).getFullYear();
+            var footer = [
+              '----',
+              '> Last modified {docsify-updated}.',
+              '> [Svein](https://blog.sveinfz.me/), &copy;'+ curYear +'. Proudly published with [docsify](https://github.com/docsifyjs/docsify) and powered by love.',
+            ].join("\n");
+
+            // return editHtml
+            //   + "\n----\n"
+            //   + content
+            //   + "\n\n"
+            //   + footer
+            return content
+              + "\n\n"
+              + footer
+          })
+        },
+      ]
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-swift.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-go.min.js"></script>
+  <!-- <script src="//unpkg.com/docsify"></script> -->
+  <script src="//unpkg.com/docsify/lib/plugins/ga.js"></script>
+  <!-- docsify-tabs (latest v1.x.x) -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <!-- CDN files for docsify-katex -->
+<script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
 </body>
 </html>
