@@ -30,7 +30,7 @@
       // logo: '_img/icon.png',
       // repo: 'https://github.com/sveinfz/arena-site',
       loadSidebar: true, // 侧边栏配置
-      subMaxLevel: 2, // 侧边栏显示层级
+      subMaxLevel: 3, // 侧边栏显示层级
       coverpage: true, // 是否配置封面
       auto2top: true, // 切换页面后是否自动跳转到页面顶部
       markdown: {
@@ -67,11 +67,13 @@
             return content
               + "\n\n"
               + footer
-          })
+          });
+
         },
       ]
     }
   </script>
+
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
